@@ -65,19 +65,19 @@
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
             border: 5px solid rgba(255, 255, 255, 0.3);
-            margin-bottom: 1.5rem;
-            background-color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             margin: 0 auto 1.5rem;
-            font-size: 60px;
-            color: var(--primary-color);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
         }
 
         h1 {
@@ -139,6 +139,8 @@
             margin-top: 2rem;
             display: flex;
             justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .download-btn {
@@ -159,6 +161,28 @@
             background-color: #c0392b;
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .share-btn:hover {
+            background-color: #8e44ad;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(155, 89, 182, 0.4);
         }
 
         section {
@@ -373,6 +397,125 @@
             transform: translateY(-3px);
         }
 
+        .share-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .share-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .share-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .share-content h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .share-link {
+            display: flex;
+            margin: 1.5rem 0;
+        }
+
+        .share-link input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+        }
+
+        .copy-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0 1.2rem;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .copy-btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        .share-options {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .share-option {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .share-option.linkedin {
+            background-color: #0077b5;
+        }
+
+        .share-option.twitter {
+            background-color: #1da1f2;
+        }
+
+        .share-option.whatsapp {
+            background-color: #25d366;
+        }
+
+        .share-option.email {
+            background-color: #ea4335;
+        }
+
+        .share-option:hover {
+            transform: translateY(-3px);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #777;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--primary-color);
+        }
+
         @media (max-width: 768px) {
             .item-header {
                 flex-direction: column;
@@ -397,6 +540,17 @@
             .title {
                 font-size: 1.1rem;
             }
+            
+            .download-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .download-btn, .share-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -404,9 +558,8 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="profile-img">
-                    <i class="fas fa-user"></i>
-                </div>
+                <!-- Replace the src with your actual profile picture -->
+                <img src="photo.jpeg" alt="R. Akshayaa Sree" class="profile-img">
                 <h1>R. Akshayaa Sree</h1>
                 <p class="title">Aspiring AI/ML Professional</p>
                 <div class="contact-info">
@@ -439,6 +592,10 @@
                         <i class="fas fa-file-pdf"></i>
                         Download Resume (PDF)
                     </a>
+                    <button class="share-btn" id="shareBtn">
+                        <i class="fas fa-share-alt"></i>
+                        Share Portfolio
+                    </button>
                 </div>
             </div>
         </div>
@@ -624,6 +781,34 @@
         </div>
     </footer>
 
+    <!-- Share Modal -->
+    <div class="share-modal" id="shareModal">
+        <div class="share-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <h3>Share My Portfolio</h3>
+            <p>Share this link with others to showcase my portfolio:</p>
+            <div class="share-link">
+                <input type="text" id="portfolioLink" value="https://yourusername.github.io/Akshayaa_Portfolio" readonly>
+                <button class="copy-btn" id="copyLink">Copy</button>
+            </div>
+            <p>Or share directly on:</p>
+            <div class="share-options">
+                <a href="#" class="share-option linkedin" id="shareLinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="share-option twitter" id="shareTwitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="share-option whatsapp" id="shareWhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" class="share-option email" id="shareEmail">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <a href="#" class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </a>
@@ -648,13 +833,45 @@
             });
         });
 
-        // PDF download functionality
-        document.querySelector('.download-btn').addEventListener('click', function(e) {
-            // If you don't have a PDF version, you could use a service to convert your DOCX to PDF
-            // For now, we'll just download the DOCX file
-            // In a real implementation, you would replace this with your actual PDF file
-            console.log('Downloading resume...');
-            // This is where you would integrate with a PDF conversion service if needed
+        // Share functionality
+        const shareBtn = document.getElementById('shareBtn');
+        const shareModal = document.getElementById('shareModal');
+        const closeModal = document.getElementById('closeModal');
+        const copyLink = document.getElementById('copyLink');
+        const portfolioLink = document.getElementById('portfolioLink');
+        
+        // Update this with your actual portfolio URL once deployed
+        const portfolioURL = "https://yourusername.github.io/Akshayaa_Portfolio";
+        
+        shareBtn.addEventListener('click', () => {
+            shareModal.classList.add('show');
+            portfolioLink.value = portfolioURL;
+        });
+        
+        closeModal.addEventListener('click', () => {
+            shareModal.classList.remove('show');
+        });
+        
+        copyLink.addEventListener('click', () => {
+            portfolioLink.select();
+            document.execCommand('copy');
+            copyLink.textContent = 'Copied!';
+            setTimeout(() => {
+                copyLink.textContent = 'Copy';
+            }, 2000);
+        });
+        
+        // Set up social sharing links
+        document.getElementById('shareLinkedIn').href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(portfolioURL)}`;
+        document.getElementById('shareTwitter').href = `https://twitter.com/intent/tweet?text=Check out my portfolio&url=${encodeURIComponent(portfolioURL)}`;
+        document.getElementById('shareWhatsApp').href = `https://wa.me/?text=Check out my portfolio: ${encodeURIComponent(portfolioURL)}`;
+        document.getElementById('shareEmail').href = `mailto:?subject=My Portfolio&body=Check out my portfolio: ${encodeURIComponent(portfolioURL)}`;
+
+        // Close modal when clicking outside content
+        shareModal.addEventListener('click', (e) => {
+            if (e.target === shareModal) {
+                shareModal.classList.remove('show');
+            }
         });
     </script>
 </body>
