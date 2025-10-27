@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R. Akshayaa Sree - AI/ML Professional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #9b59b6;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+            --text-color: #333;
+            --light-text: #f8f9fa;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: var(--light-text);
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23000000" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 1.5rem;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 60px;
+            color: var(--primary-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .title {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .download-container {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .download-btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+
+        section {
+            padding: 3rem 0;
+            background-color: white;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+            display: inline-block;
+        }
+
+        .section-content {
+            padding: 0 1.5rem;
+        }
+
+        .education-item, .experience-item, .certificate-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .education-item:last-child, .experience-item:last-child, .certificate-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .item-date {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .item-subtitle {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .item-details {
+            margin-top: 0.8rem;
+        }
+
+        .item-details ul {
+            padding-left: 1.5rem;
+        }
+
+        .item-details li {
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-category h4 {
+            margin-bottom: 0.8rem;
+            color: var(--dark-color);
+            font-size: 1.1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background-color: var(--light-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--dark-color);
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .certificate-card {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .certificate-content {
+            padding: 1.5rem;
+        }
+
+        .certificate-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .certificate-issuer {
+            color: #666;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .certificate-date {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .item-header {
+                flex-direction: column;
+            }
+            
+            .item-date {
+                margin-top: 0.3rem;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .title {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-img">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h1>R. Akshayaa Sree</h1>
+                <p class="title">Aspiring AI/ML Professional</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Bengaluru, India</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>8088525601</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>rakshayaasreebtech24@rvu.edu.in</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/akshayaa-sree-r-422741367/" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/R-Akshayaa-Sree" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:rakshayaasreebtech24@rvu.edu.in" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                <div class="download-container">
+                    <a href="R_Akshayaa_Sree_Resume.pdf" class="download-btn" download>
+                        <i class="fas fa-file-pdf"></i>
+                        Download Resume (PDF)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="summary">
+            <div class="section-content">
+                <h2 class="section-title">Professional Summary</h2>
+                <p>Aspiring AI/ML Professional with a strong academic foundation in Computer Science, specializing in Artificial Intelligence and Machine Learning (AIML) with a minor in Fintech. Awarded a college scholarship for outstanding academic performance (9.6 CGPA). Proven ability to develop robust, scalable solutions, demonstrated by a successful AI-powered document processing and translation system during an internship. Eager to contribute technical skills (Java, C, Python) and passion for Generative AI and data-driven methods to a forward-thinking organization.</p>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="section-content">
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <div class="item-header">
+                        <h3 class="item-title">RV University, Bengaluru</h3>
+                        <span class="item-date">Expected Graduation: 2028</span>
+                    </div>
+                    <p class="item-subtitle">B.Tech. (Hons.) in Computer Science and Engineering (AI & ML Major, Fintech Minor)</p>
+                    <div class="item-details">
+                        <p>Academic Scholarship Recipient</p>
+                        <p>CGPA: 9.6/10.0 (First Year Performance)</p>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="item-header">
+                        <h3 class="item-title">EuroSchool, HSR Layout</h3>
+                        <span class="item-date">2024</span>
+                    </div>
+                    <p class="item-subtitle">ISC (12th Boards - PCMC)</p>
+                    <div class="item-details">
+                        <p>94.75% (School Third Topper)</p>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Gnan Srishti School of Excellence</h3>
+                        <span class="item-date">2022</span>
+                    </div>
+                    <p class="item-subtitle">ICSE (10th Boards)</p>
+                    <div class="item-details">
+                        <p>97.6% (School Second Topper)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="section-content">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h4>Programming Languages</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>AI/ML Tools</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Hugging Face</span>
+                            <span class="skill-tag">Streamlit</span>
+                            <span class="skill-tag">Sambanova AI</span>
+                            <span class="skill-tag">Git/GitHub</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Concepts</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Artificial Intelligence</span>
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Database Management Systems (DBMS)</span>
+                            <span class="skill-tag">Frontend Development</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="section-content">
+                <h2 class="section-title">Internship & Project Experience</h2>
+                <div class="experience-item">
+                    <div class="item-header">
+                        <h3 class="item-title">AI/ML Intern at Broadrange AI</h3>
+                        <span class="item-date">February 2025 – August 2025</span>
+                    </div>
+                    <div class="item-details">
+                        <ul>
+                            <li>Spearheaded the development of a comprehensive AI solution for document processing and translation using Streamlit and Sambanova AI.</li>
+                            <li>Engineered core functionalities including text/PDF content extraction, multi-language translation, and document summarization leveraging Hugging Face models.</li>
+                            <li>Developed an integrated conversational chatbot and speech-to-speech translation feature to enhance user accessibility and interaction.</li>
+                            <li>Implemented a resource tracking module to accurately monitor token usage and calculate real-time translation/summarization costs in various currencies, ensuring cost-efficiency.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Project: BeatSavior – Heart Attack Management System</h3>
+                    </div>
+                    <div class="item-details">
+                        <ul>
+                            <li>Designed and implemented a Database Management System (DBMS) solution for efficient patient data organization and heart attack management.</li>
+                            <li>Modeled and structured database schema using MySQL to optimize retrieval of critical patient history data.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certificates">
+            <div class="section-content">
+                <h2 class="section-title">Certificates & Awards</h2>
+                <div class="certificates-grid">
+                    <div class="certificate-card">
+                        <div class="certificate-content">
+                            <h3 class="certificate-title">IBM AI Developer</h3>
+                            <p class="certificate-issuer">Coursera</p>
+                            <p class="certificate-date">Completed: September 12, 2024</p>
+                            <a href="Coursera ITB6C8IJSUJO.pdf" class="btn btn-outline" target="_blank">View Certificate</a>
+                        </div>
+                    </div>
+                    <div class="certificate-card">
+                        <div class="certificate-content">
+                            <h3 class="certificate-title">Generative AI Project</h3>
+                            <p class="certificate-issuer">Broadrange AI</p>
+                            <p class="certificate-date">February 2025 – August 2025</p>
+                            <a href="Broadrange_AI_Intership_Certficate_R Akshayaa Sree.pdf" class="btn btn-outline" target="_blank">View Certificate</a>
+                        </div>
+                    </div>
+                    <div class="certificate-card">
+                        <div class="certificate-content">
+                            <h3 class="certificate-title">RVITM - Hacker Ring</h3>
+                            <p class="certificate-issuer">0x.Day Hackathon</p>
+                            <p class="certificate-date">September 27, 2025</p>
+                            <a href="R.Akshayaa_Sree_RVITM_-_Hacker_Ring_certificate.jpg" class="btn btn-outline" target="_blank">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities">
+            <div class="section-content">
+                <h2 class="section-title">Awards & Co-Curricular Activities</h2>
+                <div class="experience-item">
+                    <h3 class="item-title">Academic and Technical Achievements</h3>
+                    <div class="item-details">
+                        <ul>
+                            <li>Academic Scholarship Recipient: Awarded college scholarship for outstanding first-year performance (9.6 CGPA).</li>
+                            <li>IBM AI Developer Course completion (Coursera).</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <h3 class="item-title">Leadership and Co-Curricular Activities</h3>
+                    <div class="item-details">
+                        <ul>
+                            <li>Demonstrated strong leadership, communication, and execution skills through academic group projects and organizing university tech events.</li>
+                            <li>Represented school in Basketball and Throwball competitions, winning interschool championships.</li>
+                            <li>HAL Aerothon 2025 conducted in PES University.</li>
+                            <li>RVITM - Hacker Ring in association with Oxday Hackathon 2025.</li>
+                            <li>Member of CodeVerse Leetcode Community GDG, RVU.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 R. Akshayaa Sree. All Rights Reserved.</p>
+            
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // PDF download functionality
+        document.querySelector('.download-btn').addEventListener('click', function(e) {
+            // If you don't have a PDF version, you could use a service to convert your DOCX to PDF
+            // For now, we'll just download the DOCX file
+            // In a real implementation, you would replace this with your actual PDF file
+            console.log('Downloading resume...');
+            // This is where you would integrate with a PDF conversion service if needed
+        });
+    </script>
+</body>
+</html>
